@@ -4,6 +4,7 @@ import nba from 'nba';
 import { DataViewContainer } from './DataViewContainer';
 import { SearchBar } from './SearchBar';
 import { DEFAULT_PLAYER_INFO } from '../constants';
+import {_} from 'lodash';
 
 export class Main extends React.Component {
     state = {
@@ -27,6 +28,15 @@ export class Main extends React.Component {
 
     render() {
         const { playerInfo } = this.state;
+        var object = [ 
+                { 'obj': 'moto', 'active': true }, 
+                { 'obj': 'lenovo',   'active': false } ]; 
+   
+        // Use of _.some() method 
+        // The `_.matches` iteratee shorthand 
+  
+        let gfg = _.some(object, { 'obj': 'moto', 'active': false }); 
+        console.log(gfg);
         return (
             <div className="main">
                 <SearchBar loadPlayerInfo = {this.loadPlayerInfo}/>
